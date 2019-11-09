@@ -124,7 +124,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Tweet" id="PQK-vw-vos">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="gJd-uv-5BO" kind="presentation" id="PO4-qR-mf4"/>
+                                <segue destination="gJd-uv-5BO" kind="presentation" modalPresentationStyle="fullScreen" id="PO4-qR-mf4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -138,11 +138,11 @@
             <objects>
                 <viewController id="QjI-6f-fsB" customClass="TweetViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hnh-zh-CBk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Tpg-4C-dxS">
-                                <rect key="frame" x="0.0" y="56" width="375" height="196"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="196"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="196" id="wQM-dv-a3u"/>
@@ -174,6 +174,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tweetTextView" destination="Tpg-4C-dxS" id="lOz-Jr-Hgd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ADw-Cy-v9h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -205,7 +208,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gJd-uv-5BO" userLabel="Tweet Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OqI-r9-Ecz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.67450980392156867" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
