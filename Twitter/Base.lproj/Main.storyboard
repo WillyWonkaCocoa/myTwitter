@@ -44,7 +44,7 @@
                         <viewLayoutGuide key="safeArea" id="2YH-ep-1Ze"/>
                     </view>
                     <connections>
-                        <segue destination="YuR-5N-ez8" kind="presentation" identifier="loginToHome" id="pmc-j6-zeH"/>
+                        <segue destination="YuR-5N-ez8" kind="presentation" identifier="loginToHome" modalPresentationStyle="fullScreen" id="pmc-j6-zeH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Gs-S1-pIq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -56,17 +56,57 @@
             <objects>
                 <tableViewController modalPresentationStyle="fullScreen" id="2RA-PP-aeq" customClass="HomeTableViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="95c-Qh-81L">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="EhP-88-upy">
-                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tweetCell" rowHeight="120" id="EhP-88-upy" customClass="TweetCellTableViewCell" customModule="Twitter" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EhP-88-upy" id="GWz-3v-6pO">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ax1-eQ-5se">
+                                            <rect key="frame" x="16" y="11" width="65" height="65"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="65" id="0Sc-w9-nmu"/>
+                                                <constraint firstAttribute="height" constant="65" id="3V3-3c-d2Z"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="65" id="P5r-wM-xcC"/>
+                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="65" id="eWr-xS-Wv8"/>
+                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="65" id="j7U-Ii-fsa"/>
+                                                <constraint firstAttribute="width" constant="65" id="ysS-cG-rm8"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="John Snow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pvk-cE-kio">
+                                            <rect key="frame" x="89" y="11" width="80.5" height="18"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tweet Content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKH-eY-VM8">
+                                            <rect key="frame" x="89" y="29" width="270" height="80"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="fKH-eY-VM8" secondAttribute="trailing" id="1Tx-et-AMM"/>
+                                        <constraint firstItem="ax1-eQ-5se" firstAttribute="leading" secondItem="GWz-3v-6pO" secondAttribute="leadingMargin" id="Ffu-av-Cl3"/>
+                                        <constraint firstItem="fKH-eY-VM8" firstAttribute="leading" secondItem="ax1-eQ-5se" secondAttribute="trailing" constant="8" id="Jcv-bm-uWc"/>
+                                        <constraint firstItem="ax1-eQ-5se" firstAttribute="top" secondItem="GWz-3v-6pO" secondAttribute="topMargin" id="NMv-1z-yAO"/>
+                                        <constraint firstItem="fKH-eY-VM8" firstAttribute="bottom" secondItem="GWz-3v-6pO" secondAttribute="bottomMargin" id="Qzj-0D-8Wi"/>
+                                        <constraint firstItem="fKH-eY-VM8" firstAttribute="top" secondItem="pvk-cE-kio" secondAttribute="bottom" id="bSI-WO-Zc5"/>
+                                        <constraint firstItem="pvk-cE-kio" firstAttribute="top" secondItem="GWz-3v-6pO" secondAttribute="topMargin" id="hDK-1w-ZeF"/>
+                                        <constraint firstItem="pvk-cE-kio" firstAttribute="leading" secondItem="ax1-eQ-5se" secondAttribute="trailing" constant="8" id="mEE-PH-cfC"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="profileImageView" destination="ax1-eQ-5se" id="DBB-Ru-VSJ"/>
+                                    <outlet property="tweetContent" destination="fKH-eY-VM8" id="CvD-YH-2Ct"/>
+                                    <outlet property="userNameLabel" destination="pvk-cE-kio" id="f1T-fn-Et8"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -85,14 +125,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bjg-IZ-VIe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1990" y="-541"/>
+            <point key="canvasLocation" x="-1991.2" y="-541.07946026986508"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lib-jE-iV2">
             <objects>
                 <navigationController id="YuR-5N-ez8" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ANe-Ki-v0v">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
